@@ -1,5 +1,4 @@
 <html>
-
 <head>
   <meta charset="utf-8">
   <script type="text/javascript" src="quest_list.js"></script>
@@ -15,12 +14,12 @@
     <div id="div-btn" class="div-btn">
       <span><b>Контактная информация</b></span>
       <label for="fname"><b>Имя</b></label>
-      <input type="text" placeholder="Введите имя" name="fname"  maxlength="20">
+      <input type="text" placeholder="Введите имя" name="fname" pattern="^[A-Za-z]"  maxlength="20">
       <label for="sname"><b>Фамилия</b></label>
-      <input type="text" placeholder="Введите фамилию" name="sname"  maxlength="20">
+      <input type="text" placeholder="Введите фамилию" name="sname" pattern="^[A-Za-z]"  maxlength="40">
       <label for="eml"><b>E-mail</b></label>
-      <input type="email" placeholder="Введите E-mail" name="email" >
-      <input id="btn_start" type="button" value="Начать тест" onclick="startInq();"></input>
+      <input type="email" placeholder="Введите E-mail"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" >
+      <input id="btn_start" type="submit" value="Начать тест" onclick="validateInfo();"></input>
     </div>
   </form>
 </body>

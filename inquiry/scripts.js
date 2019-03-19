@@ -1,8 +1,21 @@
 var js_data = JSON.parse(getData());
 var i = 0;
 
+function startInq() {
+  document.getElementById("div-btn").remove();
+  var div2 = " <div id='task'>" +
+    "  <div id='quest'>" +
+    "    <p><span id='q_text'></span>" +
+    "    <div id='answers'></div>" +
+    "</div>" +
+    "   <input id='btn_next' type='button' disabled = true;  value='Следующий вопрос' onclick='divInit();'></input>" +
+    "  </div> ";
+  document.getElementById("main").innerHTML = div2;
+  divInit();
+}
+
+
 function divInit() {
-  //console.log(i);
   var div1 = document.createElement('div');
   document.getElementById("answers").innerHTML = "";
 
@@ -31,19 +44,24 @@ function divInit() {
         document.getElementById("answers").appendChild(label);
       });
     document.getElementById("q_text").textContent = "Вопрос " + (i + 1) + ". " + js_data[i].text;
-    //  document.getElementById("answers").innerHTML = div1.outerHTML;
     document.getElementById("btn_next").disabled = true;
     i++;
     if (i == js_data.length) {
       var btn = "<input id='btn_check' type='button' value='Закончить опрос' onclick='endInq();'></input>";
       document.getElementById("btn_next").value = "Закончить опрос";
       document.getElementById("btn_next").setAttribute('onclick', 'endInq()');
-      //document.getElementById("btn_next").id = "btn_check";
-
-
     };
   }
 }
+
+function endInq() {
+  //происходит проверка или тип того
+  document.getElementById("main").innerHTML = "<span id='bb_phrase'><b> Спасибо за прохождение опроса</b> </span>";
+}
+
+
+
+//validation
 
 function check() {
   var ele = document.getElementsByName('chck');
@@ -60,24 +78,25 @@ function check() {
     document.getElementById("btn_next").disabled = true;
 }
 
+function validateInfo() {
+  var inputs = document.querySelectorAll('input:not([type="submit"])');
+  var submit = document.querySelector('input[type="submit"]');
+  re = new RegExp(inputs[0].getAttribute("pattern"));
 
-function startInq() {
-  document.getElementById("div-btn").remove();
+  re1 = new RegExp(submit.getAttribute("pattern"));
 
-  var div2 = " <div id='task'>" +
-    "  <div id='quest'>" +
-    "    <p><span id='q_text'></span>" +
-    "    <div id='answers'></div>" +
-    "</div>" +
-    "   <input id='btn_next' type='button' disabled = true;  value='Следующий вопрос' onclick='divInit();'></input>" +
-    "  </div> ";
-  document.getElementById("main").innerHTML = div2;
-  divInit();
+  if (re.test(inputs[0].value))
+    inputs[0].setCustomValidity('');
+  else
+    inputs[0].setCustomValidity('Only A-Z, a-z letters');
+
+
+  if (re.test(inputs[1].value)) inputs[1].setCustomValidity('');
+  else
+    inputs[1].setCustomValidity('Only A-Z, a-z letters');
+
+
+  if (re1.test(submit.value)) submit.setCustomValidity('');
+  else
+    submit.setCustomValidity('Адрес электронной почты неполный.');
 }
-
-function endInq() {
-  //происходит проверка или тип того
-  document.getElementById("main").innerHTML = "<span id='bb_phrase'><b> Спасибо за прохождение опроса</b> </span>";
-}
-//проверку на последний вопрос - кнопку поменять на "Проверить"
-//обновляем содержимое div'a другими элементами p (вопрос и варианты)
