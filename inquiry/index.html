@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="quest_list.js"></script>
+  <script type="text/javascript" src="scripts.js"></script>
+  <style> @import url("stylesheet.css");</style>
+</head>
+<body>
+  <div class="header1">
+    <h1> Тестирование на должность администратор баз данных</h1>
+  </div>
+  <form id="questForm" method="post" action="scripts.js">
+    <div class="main" id="main"></div>
+    <div id="div-btn" class="div-btn">
+      <span><b>Контактная информация</b></span>
+      <label for="fname"><b>Имя</b></label>
+      <input type="text" placeholder="Введите имя" name="fname"  maxlength="20">
+      <label for="sname"><b>Фамилия</b></label>
+      <input type="text" placeholder="Введите фамилию" name="sname"  maxlength="20">
+      <label for="eml"><b>E-mail</b></label>
+      <input type="email" placeholder="Введите E-mail" name="email" >
+      <input id="btn_start" type="button" value="Начать тест" onclick="startInq();"></input>
+    </div>
+  </form>
+</body>
+</html>

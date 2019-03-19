@@ -1,0 +1,216 @@
+
+html {
+	height: 100%;
+}
+
+body {
+	font: 14px Arial, sans-serif;
+	color: #17246C;
+	height: 100%;
+	background-color: 	#F6DC9C;
+}
+
+#questForm {
+	/* display: inline-block; */
+	/* position: relative; */
+  width: 700;
+  height: 530;
+  margin: 0 auto;
+  background-color: #F6D27A;
+	padding: 10;
+	box-shadow: 0 0 25px rgba(0,0,0,0.5);
+	border-style: solid;
+
+}
+.div-btn, #task{
+	margin: 0 auto;
+ left: 0;
+ top: 0;
+ width: 300px;
+ height: calc(100% - 150px) ;
+ /*overflow: auto;  Enable scroll if needed */
+/* background-color: rgb(0,0,0);  Fallback color
+ background-color: rgba(0,0,0,0.4);  Black w/ opacity */
+ padding: 100 0;
+}
+#task{
+margin: 10 0; /* подвигать под вопросы*/
+width: auto;
+padding: 50px;
+}
+.div-btn-content{
+ background-color: #fefefe;
+ margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+ border: 1px solid #888;
+ width: 80%;
+}
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+#btn_next[disabled=true]{
+	color: #4444B8;
+}
+#btn_next[disabled=false]{
+	color: #040445;
+}
+ #btn_start, #btn_next, #btn_check{
+	margin-top: 10px;
+	border-style:  none;
+	padding: 1px;
+	display: inline-block;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	position: relative;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	background-color: #8E99D1	;
+	text-align: center;
+	font-size: 14px; font-weight: bolder;
+
+}
+
+.header1{
+  font-size: 16px;
+	font-family: sans-serif;
+  padding: 4;
+	margin: 12;
+  text-align: center;
+ }
+.footer{
+
+}
+.div-btn span{
+	/* font-size: 14px; */
+	margin: 8px 0;
+	display: block;
+	text-align: center;
+}
+#main span{
+	font-size: 18px;
+	font-style: italic;
+	font-weight: bolder;
+
+}
+#bb_phrase{
+	font-style:normal;
+	font-weight: bold;
+	font-size: 24px;
+	/* display: block; */
+	text-align: center;
+	margin: 0 auto;
+	left: 0;
+	top: 0;
+	/* width: 300px; */
+	display: inline-block;
+	width: 100%;
+	height: 330px;
+	line-height: 330px;
+	padding: 100 0;
+}
+#quest p{
+	margin-bottom: 20px;
+}
+.answers-ans {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.answers-ans input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+.radiomark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+	border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.answers-ans:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.answers-ans:hover input ~ .radiomark {
+  background-color: #ccc;
+}
+/* When the checkbox is checked, add a blue background */
+.answers-ans input:checked ~ .checkmark{
+  background-color: #8E99D1;
+}
+.answers-ans input:checked ~ .radiomark {
+  background-color: #8E99D1;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after{
+  content: "";
+  position: absolute;
+  display: none;
+}
+.radiomark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.answers-ans input:checked ~ .checkmark:after {
+  display: block;
+}
+.answers-ans input:checked ~ .radiomark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.answers-ans .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* Style the indicator (dot/circle) */
+.answers-ans .radiomark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
