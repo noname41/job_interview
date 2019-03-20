@@ -13,14 +13,14 @@
     <div class="main" id="main"></div>
     <div id="div-btn" class="div-btn">
       <span><b>Контактная информация</b></span>
-      <label for="fname"><b>Имя</b></label>
-      <input type="text" placeholder="Введите имя" name="fname" pattern="^[A-Za-z]"  maxlength="20">
-      <label for="sname"><b>Фамилия</b></label>
-      <input type="text" placeholder="Введите фамилию" name="sname" pattern="^[A-Za-z]"  maxlength="40">
-      <label for="eml"><b>E-mail</b></label>
-      <input type="email" placeholder="Введите E-mail"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" >
-      <input id="btn_start" type="submit" value="Начать тест" onclick="validateInfo();"></input>
-    </div>
+<label for="fname"><b>Имя</b></label>
+<input type="text" placeholder="Введите имя" name="fname" pattern='[A-Za-zА-Яа-яЁё]{2,20}' required >
+<label for="sname"><b>Фамилия</b></label>
+<input type="text" placeholder="Введите фамилию" name="sname" pattern='[A-Za-zА-Яа-яЁё]{2,40}' required >
+<label for="eml"><b>E-mail</b></label>
+<input type="email" placeholder="Введите E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" required >
+<input id="btn_start" type="submit" value="Начать тест"></input>
+</div>
   </form>
 </body>
 </html>

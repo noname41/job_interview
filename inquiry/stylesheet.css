@@ -9,7 +9,13 @@ body {
 	height: 100%;
 	background-color: 	#F6DC9C;
 }
-
+/* input:required:valid {
+  border-color: green;
+}
+input:required:invalid {
+  border-color: #AC0C3C;
+	border-width: medium;
+} */
 #questForm {
 	/* display: inline-block; */
 	/* position: relative; */

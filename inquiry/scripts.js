@@ -59,8 +59,6 @@ function endInq() {
   document.getElementById("main").innerHTML = "<span id='bb_phrase'><b> Спасибо за прохождение опроса</b> </span>";
 }
 
-
-
 //validation
 
 function check() {
@@ -78,25 +76,19 @@ function check() {
     document.getElementById("btn_next").disabled = true;
 }
 
-function validateInfo() {
-  var inputs = document.querySelectorAll('input:not([type="submit"])');
-  var submit = document.querySelector('input[type="submit"]');
-  re = new RegExp(inputs[0].getAttribute("pattern"));
-
-  re1 = new RegExp(submit.getAttribute("pattern"));
-
-  if (re.test(inputs[0].value))
-    inputs[0].setCustomValidity('');
-  else
-    inputs[0].setCustomValidity('Only A-Z, a-z letters');
-
-
-  if (re.test(inputs[1].value)) inputs[1].setCustomValidity('');
-  else
-    inputs[1].setCustomValidity('Only A-Z, a-z letters');
-
-
-  if (re1.test(submit.value)) submit.setCustomValidity('');
-  else
-    submit.setCustomValidity('Адрес электронной почты неполный.');
-}
+window.addEventListener("load", function() {
+  var in_fname = document.querySelectorAll('input[type=text]');
+  in_fname.forEach(function(item) {
+    item.addEventListener('keyup', function() {
+      if (item.value.length > 1) {
+        if (item.validity.patternMismatch)
+          this.setCustomValidity('Разрешены только буквы А-Я, A-Z');
+        else {
+          this.setCustomValidity('');
+        }
+      } else {
+        this.setCustomValidity('Длина поля должна быть от 2-х символов');
+      }
+    });
+  });
+})
